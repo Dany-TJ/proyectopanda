@@ -1,0 +1,19 @@
+import pandas as pd
+
+# Supongamos que 'data' es un diccionario con tus datos
+# Ejemplo de creación de un DataFrame a partir de un diccionario
+data = {
+    'is_male': [1, 0, 1, 0, 1],
+    'is_smoker': [1, 1, 0, 1, 0]
+}
+
+df = pd.DataFrame(data)
+
+# Verificar los tipos de datos
+print(df.dtypes)
+
+# Calcular la cantidad de hombres fumadores vs mujeres fumadoras
+hombres_fumadores = df[(df['is_male'] == 1) & (df['is_smoker'] == 1)].shape[0]
+mujeres_fumadoras = df[(df['is_male'] == 0) & (df['is_smoker'] == 1)].shape[0]
+
+print(f"Hay {hombres_fumadores} hombres fumadores y {mujeres_fumadoras} mujeres fumadoras.")
